@@ -11,14 +11,14 @@ const chart = new Chart(ctx, {
         datasets: [
             {
                 label: 'Ask',
-                borderColor: 'blue',
-                backgroundColor: 'rgba(0,0,255,0.1)',
+                borderColor: 'red',
+                backgroundColor: 'red',
                 data: []
             },
             {
                 label: 'Bid',
-                borderColor: 'red',
-                backgroundColor: 'rgba(255,0,0,0.1)',
+                borderColor: 'blue',
+                backgroundColor: 'blue',
                 data: []
             }
         ]

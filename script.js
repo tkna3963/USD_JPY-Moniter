@@ -52,7 +52,7 @@ ws.onmessage = (event) => {
     const { symbol, ask, bid, timestamp, status } = data;
 
     const timestampDate = new Date(timestamp);
-    const formattedTimestamp = `取得時刻: ${timestampDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}`;
+    const formattedTimestamp = `取得時刻: ${timestampDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}(${timeList.length}個)`;
     if (timeList.length > 100) {
         askList.shift(); 
         bidList.shift(); 

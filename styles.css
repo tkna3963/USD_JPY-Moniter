@@ -42,3 +42,11 @@ body {
     height: 150px;
     resize: none;
 }
+
+#ask-label{
+    color: red;
+}
+
+#bid-label{
+    color: blue;
+}

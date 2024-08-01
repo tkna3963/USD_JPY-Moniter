@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex Ticker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Include Chart.js and Date Adapter -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>GMOコインWebsocket為替レートモニター - USD/JPY -</h1>
+            <div id="transaction-info">取引中</div>
+        </div>
+        <div class="content">
+            <div class="labels">
+                <div id="timestamp-label">取得時刻: </div>
+                <div id="ask-label">買値 (Ask): </div>
+                <div id="bid-label">売値 (Bid): </div>
+            </div>
+            <canvas id="chart"></canvas>
+        </div>
+        <div class="messages">
+            <textarea id="message-text" readonly></textarea>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

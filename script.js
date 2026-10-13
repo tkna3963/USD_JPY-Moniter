@@ -1,9 +1,12 @@
 const ws_url = 'wss://forex-api.coin.z.com/ws/public/v1';
 const ctx = document.getElementById('chart').getContext('2d');
+const MAX_CHART_POINTS = 100;
+const MAX_MESSAGE_LINES = 200;
 
 const askList = [];
 const bidList = [];
 const timeList = [];
+const messageLines = [];
 
 const chart = new Chart(ctx, {
     type: 'line',
@@ -53,7 +56,7 @@ ws.onmessage = (event) => {
 
     const timestampDate = new Date(timestamp);
     const formattedTimestamp = `取得時刻: ${timestampDate.toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}`;
-    if (timeList.length > 100) {
+    if (timeList.length >= MAX_CHART_POINTS) {
         askList.shift(); 
         bidList.shift(); 
         timeList.shift();
@@ -88,8 +91,13 @@ function updateChart() {
 }
 
 function updateMessageText(message) {
+    if (messageLines.length >= MAX_MESSAGE_LINES) {
+        messageLines.shift();
+    }
+    messageLines.push(message);
+
     const messageText = document.getElementById('message-text');
-    messageText.value += `${message}\n`;
+    messageText.value = `${messageLines.join('\n')}\n`;
     messageText.scrollTop = messageText.scrollHeight;
 }
 
